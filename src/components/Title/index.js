@@ -1,6 +1,7 @@
-import { StyledTitle } from "./styled"
+import { StyledTitle, Header } from "./styled";
 
-
-export  const Title = ()=> (
-    <StyledTitle>Memory</StyledTitle>
-)
+export const Title = () => (
+  <Header>
+    🎄 <StyledTitle> Christmas Memory Game </StyledTitle> 🎄
+  </Header>
+);
