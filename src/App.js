@@ -1,10 +1,11 @@
-import "./App.css";
+import { Button } from "./components/Button";
+import { Title } from "./components/Title";
 
 function App() {
   return (
     <div className="App">
-      <h1>Memory</h1>
-      <button>New Game</button>
+      <Title />
+      <Button />
     </div>
   );
 }
