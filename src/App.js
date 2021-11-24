@@ -1,13 +1,17 @@
+import { useState } from "react";
+import { Board } from "./components/Board";
 import { Button } from "./components/Button";
 import { Title } from "./components/Title";
 
-function App() {
+
+export const App = () => {
   return (
-    <div className="App">
+    <>
       <Title />
+      <Board />
       <Button />
-    </div>
+    </>
   );
-}
+};
 
 export default App;
