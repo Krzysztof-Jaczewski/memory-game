@@ -16,7 +16,7 @@ export const SingleCard = ({ card }) => {
   const choiceTwo = useSelector(selectChoiceTwo);
   const dispatch = useDispatch();
 
-  const handleClick = (card) => {
+  const handleClick = () => {
     dispatch(handleChoice(card));
   };
 
@@ -51,7 +51,7 @@ export const SingleCard = ({ card }) => {
         }
         src={cardBack.src}
         alt="card back"
-        onClick={() => handleClick(card)}
+        onClick={() => handleClick()}
       />
     </StyledCard>
   );

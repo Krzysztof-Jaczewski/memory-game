@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const MainContent = styled.main`
-  max-width: 540px;
+  max-width: 660px;
   min-height: 100px;
   margin: 40px auto;
+  padding: 0 60px;
 `;
 
 export const StyledBoard = styled.section`
