@@ -19,7 +19,7 @@ body {
   font-family: 'Lato', sans-serif;
   background-image: url(${lights}), url(${stars});
   background-repeat: no-repeat;
-  background-size: 100% contain;
+  background-size: 100% 100%;
 }
 
 `;
