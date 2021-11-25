@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledCard = styled.div`
   position: relative;
@@ -14,7 +14,7 @@ export const CardBack = styled.img`
   transition: all ease-in 0.3s;
   transition-delay: 0.3s;
 
-  ${({flipped}) =>
+  ${({ flipped }) =>
     flipped &&
     css`
       transform: rotateY(90deg);
@@ -28,7 +28,7 @@ export const CardFront = styled(CardBack)`
   transition: all ease-in 0.3s;
   cursor: not-allowed;
 
-  ${({flipped}) =>
+  ${({ flipped }) =>
     flipped &&
     css`
       transform: rotateY(0deg);

@@ -1,5 +1,5 @@
-import {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   handleChoice,
   resetChoice,
@@ -8,15 +8,15 @@ import {
   selectChoiceTwo,
   updateCards,
 } from "../gameSlice";
-import {CardFront, CardBack, StyledCard} from "./styled";
+import { CardFront, CardBack, StyledCard } from "./styled";
 
-export const SingleCard = ({card}) => {
+export const SingleCard = ({ card }) => {
   const cardBack = useSelector(selectCardBack);
   const choiceOne = useSelector(selectChoiceOne);
   const choiceTwo = useSelector(selectChoiceTwo);
   const dispatch = useDispatch();
 
-  const handleClick = card => {
+  const handleClick = (card) => {
     dispatch(handleChoice(card));
   };
 
