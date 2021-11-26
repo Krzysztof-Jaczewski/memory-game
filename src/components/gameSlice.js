@@ -5,6 +5,8 @@ import coockie from "./SingleCard/images/cookie.png";
 import gift from "./SingleCard/images/gift.png";
 import santa from "./SingleCard/images/santa.png";
 import sock from "./SingleCard/images/sock.png";
+import tree from "./SingleCard/images/tree.png";
+import snowflake from "./SingleCard/images/snowflake.png";
 import cardBack from "./SingleCard/images/cardBack.jpg";
 
 const gameSlice = createSlice({
@@ -14,6 +16,7 @@ const gameSlice = createSlice({
     turns: 0,
     choiceOne: null,
     choiceTwo: null,
+    disabled: false,
     cardBack: { src: cardBack },
     cardImages: [
       { src: snowman },
@@ -22,10 +25,12 @@ const gameSlice = createSlice({
       { src: gift },
       { src: santa },
       { src: sock },
+      { src: tree },
+      { src: snowflake },
     ],
   },
   reducers: {
-    shuffleCards: (state) => {
+    startNewGame: (state) => {
       const shuffledCards = state.cardImages
         .concat(state.cardImages)
         .sort(() => Math.random() - 0.5)
@@ -36,30 +41,41 @@ const gameSlice = createSlice({
         }));
 
       state.cards = shuffledCards;
+      state.turns = 0;
+      state.choiceOne = null;
+      state.choiceTwo = null;
     },
+
     handleChoice: (state, { payload: card }) => {
       state.choiceOne
         ? (state.choiceTwo = card)
         : (state.choiceOne = card);
     },
+
     resetChoice: (state) => {
       state.choiceTwo = null;
       state.choiceOne = null;
       state.turns += 1;
+      state.disabled = false;
     },
+
     updateCards: (state, { payload: src }) => {
       state.cards.map((card) => {
         if (card.src === src) return (card.matched = true);
         else return card;
       });
     },
+    setDisabledTrue: (state) => {
+      state.disabled = true;
+    },
   },
 });
 export const {
-  shuffleCards,
+  startNewGame,
   handleChoice,
   resetChoice,
   updateCards,
+  setDisabledTrue,
 } = gameSlice.actions;
 
 export const selectCardsState = (state) => state.cards;
@@ -72,5 +88,8 @@ export const selectChoiceOne = (state) =>
   selectCardsState(state).choiceOne;
 export const selectChoiceTwo = (state) =>
   selectCardsState(state).choiceTwo;
+
+export const selectDisabled = (state) =>
+  selectCardsState(state).disabled;
 
 export default gameSlice.reducer;
