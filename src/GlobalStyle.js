@@ -16,10 +16,12 @@ button {
 }
 
 body {
+  height: 90vh;
   font-family: 'Lato', sans-serif;
   background-image: url(${lights}), url(${stars});
-  background-repeat: no-repeat;
   background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 `;
