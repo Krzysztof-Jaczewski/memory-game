@@ -9,10 +9,10 @@ export const CardBack = styled.img`
   display: block;
   border: 2px solid white;
   border-radius: 6px;
-  background-image: linear-gradient(green, black);
+  background-image: radial-gradient(black, green);
   cursor: pointer;
-  transition: all ease-in 0.3s;
-  transition-delay: 0.3s;
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
 
   ${({ flipped }) =>
     flipped &&
@@ -25,13 +25,13 @@ export const CardBack = styled.img`
 export const CardFront = styled(CardBack)`
   transform: rotateY(90deg);
   position: absolute;
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.2s;
   cursor: not-allowed;
 
   ${({ flipped }) =>
     flipped &&
     css`
       transform: rotateY(0deg);
-      transition-delay: 0.3s;
+      transition-delay: 0.2s;
     `}
 `;
