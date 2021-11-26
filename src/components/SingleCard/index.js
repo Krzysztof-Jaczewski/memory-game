@@ -6,6 +6,8 @@ import {
   selectCardBack,
   selectChoiceOne,
   selectChoiceTwo,
+  selectDisabled,
+  setDisabledTrue,
   updateCards,
 } from "../gameSlice";
 import { CardFront, CardBack, StyledCard } from "./styled";
@@ -14,21 +16,23 @@ export const SingleCard = ({ card }) => {
   const cardBack = useSelector(selectCardBack);
   const choiceOne = useSelector(selectChoiceOne);
   const choiceTwo = useSelector(selectChoiceTwo);
+  const disabled = useSelector(selectDisabled);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(handleChoice(card));
+    if (!disabled) {
+      dispatch(handleChoice(card));
+    }
   };
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      dispatch(setDisabledTrue());
       if (choiceOne.src === choiceTwo.src) {
         dispatch(updateCards(choiceOne.src));
         dispatch(updateCards(choiceTwo.src));
         dispatch(resetChoice());
-        console.log("brawo");
       } else {
-        console.log("źle");
         setTimeout(() => {
           dispatch(resetChoice());
         }, 1000);
@@ -36,19 +40,19 @@ export const SingleCard = ({ card }) => {
     }
   }, [dispatch, choiceOne, choiceTwo]);
 
+  const isFlipped =
+    card === choiceOne || card === choiceTwo || card.matched;
+
   return (
     <StyledCard>
       <CardFront
-        flipped={
-          card === choiceOne || card === choiceTwo || card.matched
-        }
+        flipped={isFlipped}
         src={card.src}
         alt="card front"
       />
       <CardBack
-        flipped={
-          card === choiceOne || card === choiceTwo || card.matched
-        }
+        flipped={isFlipped}
+        disabled={disabled}
         src={cardBack.src}
         alt="card back"
         onClick={() => handleClick()}
