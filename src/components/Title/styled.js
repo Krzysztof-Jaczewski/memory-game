@@ -13,5 +13,5 @@ export const Header = styled.header`
   display: grid;
   grid-auto-flow: column;
   justify-content: center;
-  margin-top: 128px;
+  margin-top: 80px;
 `;
