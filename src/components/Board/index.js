@@ -1,4 +1,4 @@
-import { MainContent, StyledBoard } from "./styled";
+import { MainContent, StyledBoard, Turns } from "./styled";
 import { useSelector } from "react-redux";
 import { selectCards, selectTurns } from "../gameSlice";
 import { SingleCard } from "../SingleCard";
@@ -10,6 +10,7 @@ export const Board = () => {
   console.log(cards, turns);
   return (
     <MainContent>
+      <Turns>Turn : {turns}</Turns>
       <StyledBoard>
         {cards.map((card) => (
           <SingleCard key={card.id} card={card} />
