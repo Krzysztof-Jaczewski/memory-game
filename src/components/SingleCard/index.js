@@ -2,17 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   handleChoice,
   selectCardBack,
-  selectChoiceOne,
-  selectChoiceTwo,
   selectDisable,
+  selectIsCardFlipped,
 } from "../gameSlice";
 import { CardFront, CardBack, StyledCard } from "./styled";
 
 export const SingleCard = ({ card }) => {
   const cardBack = useSelector(selectCardBack);
-  const choiceOne = useSelector(selectChoiceOne);
-  const choiceTwo = useSelector(selectChoiceTwo);
+
   const disable = useSelector(selectDisable);
+  const isCardFlipped = useSelector((state) =>
+    selectIsCardFlipped(state, card)
+  );
+
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -21,18 +23,15 @@ export const SingleCard = ({ card }) => {
     }
   };
 
-  const isFlipped =
-    card === choiceOne || card === choiceTwo || card.matched;
-
   return (
     <StyledCard>
       <CardFront
-        flipped={isFlipped}
+        flipped={isCardFlipped}
         src={card.src}
         alt="card front"
       />
       <CardBack
-        flipped={isFlipped}
+        flipped={isCardFlipped}
         disable={disable}
         src={cardBack.src}
         alt="card back"

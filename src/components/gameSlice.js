@@ -93,6 +93,12 @@ export const selectChoiceTwo = (state) =>
 export const selectDisable = (state) =>
   selectCardsState(state).disable;
 
+export const selectIsCardFlipped = (state, card) => {
+  const choiceOne = selectChoiceOne(state);
+  const choiceTwo = selectChoiceTwo(state);
+
+  return card === choiceOne || card === choiceTwo || card.matched;
+};
 export const selectIsEveryCardMatched = (state) =>
   selectCards(state).every(({ matched }) => matched);
 
