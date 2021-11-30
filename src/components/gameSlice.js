@@ -16,7 +16,7 @@ const gameSlice = createSlice({
     turns: 0,
     choiceOne: null,
     choiceTwo: null,
-    disabled: false,
+    disable: false,
     cardBack: { src: cardBack },
     cardImages: [
       { src: snowman },
@@ -56,7 +56,7 @@ const gameSlice = createSlice({
       state.choiceTwo = null;
       state.choiceOne = null;
       state.turns += 1;
-      state.disabled = false;
+      state.disable = false;
     },
 
     updateCards: (state, { payload: src }) => {
@@ -65,8 +65,9 @@ const gameSlice = createSlice({
         else return card;
       });
     },
-    setDisabledTrue: (state) => {
-      state.disabled = true;
+
+    setDisableTrue: (state) => {
+      state.disable = true;
     },
   },
 });
@@ -75,7 +76,7 @@ export const {
   handleChoice,
   resetChoice,
   updateCards,
-  setDisabledTrue,
+  setDisableTrue,
 } = gameSlice.actions;
 
 export const selectCardsState = (state) => state.cards;
@@ -89,7 +90,10 @@ export const selectChoiceOne = (state) =>
 export const selectChoiceTwo = (state) =>
   selectCardsState(state).choiceTwo;
 
-export const selectDisabled = (state) =>
-  selectCardsState(state).disabled;
+export const selectDisable = (state) =>
+  selectCardsState(state).disable;
+
+export const selectIsEveryCardMatched = (state) =>
+  selectCards(state).every(({ matched }) => matched);
 
 export default gameSlice.reducer;
