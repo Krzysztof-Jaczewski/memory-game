@@ -8,12 +8,14 @@ export const Button = () => {
   const dispatch = useDispatch();
 
   return (
-    <ButtonLabel onClick={() => dispatch(startNewGame())}>
+    <ButtonLabel>
       <Image src={FirstsnowCap} alt="Snow" />
       <Image src={SecondSnowCap} alt="Snow" />
       <Image src={Icecle} alt="Icicle" />
       <Image src={Icecle} alt="Icicle" />
-      <StyledButton>New Game</StyledButton>
+      <StyledButton onClick={() => dispatch(startNewGame())}>
+        New Game
+      </StyledButton>
     </ButtonLabel>
   );
 };

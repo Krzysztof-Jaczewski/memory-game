@@ -5,7 +5,6 @@ import styled from "styled-components";
 export const ButtonLabel = styled.label`
   width: 200px;
   height: 50px;
-  color: black;
   display: block;
   margin: 0 auto 0px;
   padding: 10px;
@@ -24,6 +23,20 @@ export const StyledButton = styled.button`
   color: white;
   z-index: -1;
   border: 1px solid darkred;
+  box-shadow: 2px 2px 3px rgb(60, 60, 60),
+    -2px -2px 3px rgb(255, 150, 150),
+    inset -1.5px -1.5px 3px rgb(255, 150, 150),
+    inset 1.5px 1.5px 3px rgb(0, 0, 0);
+  &:hover {
+    box-shadow: 2px 2px 3px rgb(60, 60, 60),
+      -2px -2px 3px rgb(255, 150, 150);
+  }
+  &:active {
+    box-shadow: 2px 2px 3px rgb(60, 60, 60),
+      -2px -2px 3px rgb(255, 150, 150),
+      inset -1.5px -1.5px 3px rgb(255, 150, 150),
+      inset 1.5px 1.5px 3px rgb(0, 0, 0);
+  }
 `;
 
 export const Image = styled.img`
