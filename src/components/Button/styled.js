@@ -50,13 +50,35 @@ export const Image = styled.img`
     right: -5%;
   }
   &:nth-child(3) {
-    width: 15%;
-    top: 90%;
-    right: -6%;
-  }
-  &:nth-child(4) {
     width: 10%;
     top: 100%;
-    right: 5%;
+    right: 20%;
+  }
+  &:nth-child(4) {
+    width: 15%;
+    top: 90%;
+    right: 28%;
+  }
+  &:nth-child(5) {
+    width: 8%;
+    top: 100%;
+    right: 40%;
+  }
+  &:nth-child(6) {
+    width: 15%;
+    top: 22%;
+    right: -5%;
+  }
+`;
+
+export const Difficulty = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 40px;
+
+  @media (max-width: 787px) {
+    gap: 60px;
+    grid-auto-flow: row;
   }
 `;
