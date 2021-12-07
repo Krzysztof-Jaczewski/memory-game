@@ -1,38 +1,25 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import snowman from "./SingleCard/images/snowman.png";
-import candy from "./SingleCard/images/candy.png";
-import coockie from "./SingleCard/images/cookie.png";
-import gift from "./SingleCard/images/gift.png";
-import santa from "./SingleCard/images/santa.png";
-import sock from "./SingleCard/images/sock.png";
-import tree from "./SingleCard/images/tree.png";
-import snowflake from "./SingleCard/images/snowflake.png";
 import cardBack from "./SingleCard/images/cardBack.jpg";
+import { cardsArray } from "./SingleCard/cardsArray";
 
 const gameSlice = createSlice({
   name: "cards",
   initialState: {
     cards: [],
     turns: 0,
+    status: "initial",
+    difficulty: null,
     choiceOne: null,
     choiceTwo: null,
     disable: false,
     cardBack: { src: cardBack },
-    cardImages: [
-      { src: snowman },
-      { src: candy },
-      { src: coockie },
-      { src: gift },
-      { src: santa },
-      { src: sock },
-      { src: tree },
-      { src: snowflake },
-    ],
+    cardImages: cardsArray,
   },
   reducers: {
-    startNewGame: (state) => {
+    startNewGame: (state, { payload: value }) => {
       const shuffledCards = state.cardImages
-        .concat(state.cardImages)
+        .slice(value)
+        .concat(state.cardImages.slice(value))
         .sort(() => Math.random() - 0.5)
         .map((card) => ({
           src: card.src,
@@ -40,10 +27,29 @@ const gameSlice = createSlice({
           id: nanoid(),
         }));
 
+      if (value === 6) {
+        state.difficulty = "beginner";
+      }
+      if (value === 4) {
+        state.difficulty = "advanced";
+      }
+      if (value === 0) {
+        state.difficulty = "expert";
+      }
+
       state.cards = shuffledCards;
       state.turns = 0;
+      state.status = "inGame";
       state.choiceOne = null;
       state.choiceTwo = null;
+    },
+
+    changeStatus: (state, { payload: newStatus }) => {
+      state.status = newStatus;
+    },
+
+    setDifficulty: (state, { payload: chosenDifficulty }) => {
+      state.difficulty = chosenDifficulty;
     },
 
     handleChoice: (state, { payload: card }) => {
@@ -62,7 +68,7 @@ const gameSlice = createSlice({
     updateCards: (state, { payload: srcOne, srcTwo }) => {
       state.cards.map((card) => {
         if (card.src === srcOne) return (card.matched = true);
-        if (card.src === srcOne) return (card.matched = true);
+        if (card.src === srcTwo) return (card.matched = true);
         else return card;
       });
     },
@@ -78,11 +84,16 @@ export const {
   resetChoice,
   updateCards,
   setDisableTrue,
+  changeStatus,
+  setDifficulty,
 } = gameSlice.actions;
 
 export const selectCardsState = (state) => state.cards;
 export const selectCards = (state) => selectCardsState(state).cards;
 export const selectTurns = (state) => selectCardsState(state).turns;
+export const selectStatus = (state) => selectCardsState(state).status;
+export const selectDifficulty = (state) =>
+  selectCardsState(state).difficulty;
 export const selectCardBack = (state) =>
   selectCardsState(state).cardBack;
 
