@@ -25,8 +25,7 @@ export const Board = () => {
     if (choiceOne && choiceTwo) {
       dispatch(setDisableTrue());
       if (choiceOne.src === choiceTwo.src) {
-        dispatch(updateCards(choiceOne.src));
-        dispatch(updateCards(choiceTwo.src));
+        dispatch(updateCards(choiceOne.src, choiceTwo.src));
         dispatch(resetChoice());
       } else {
         setTimeout(() => {

@@ -59,9 +59,10 @@ const gameSlice = createSlice({
       state.disable = false;
     },
 
-    updateCards: (state, { payload: src }) => {
+    updateCards: (state, { payload: srcOne, srcTwo }) => {
       state.cards.map((card) => {
-        if (card.src === src) return (card.matched = true);
+        if (card.src === srcOne) return (card.matched = true);
+        if (card.src === srcOne) return (card.matched = true);
         else return card;
       });
     },
