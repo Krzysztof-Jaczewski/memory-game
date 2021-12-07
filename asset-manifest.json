@@ -1,28 +1,35 @@
 {
   "files": {
-    "main.js": "/memory-game/static/js/main.16e379b5.chunk.js",
-    "main.js.map": "/memory-game/static/js/main.16e379b5.chunk.js.map",
+    "main.js": "/memory-game/static/js/main.13f04a0e.chunk.js",
+    "main.js.map": "/memory-game/static/js/main.13f04a0e.chunk.js.map",
     "runtime-main.js": "/memory-game/static/js/runtime-main.aff7712e.js",
     "runtime-main.js.map": "/memory-game/static/js/runtime-main.aff7712e.js.map",
-    "static/js/2.05fdb1e8.chunk.js": "/memory-game/static/js/2.05fdb1e8.chunk.js",
-    "static/js/2.05fdb1e8.chunk.js.map": "/memory-game/static/js/2.05fdb1e8.chunk.js.map",
+    "static/js/2.2ae01c43.chunk.js": "/memory-game/static/js/2.2ae01c43.chunk.js",
+    "static/js/2.2ae01c43.chunk.js.map": "/memory-game/static/js/2.2ae01c43.chunk.js.map",
     "index.html": "/memory-game/index.html",
-    "static/js/2.05fdb1e8.chunk.js.LICENSE.txt": "/memory-game/static/js/2.05fdb1e8.chunk.js.LICENSE.txt",
+    "static/js/2.2ae01c43.chunk.js.LICENSE.txt": "/memory-game/static/js/2.2ae01c43.chunk.js.LICENSE.txt",
+    "static/media/candle.1637c6b1.png": "/memory-game/static/media/candle.1637c6b1.png",
     "static/media/candy.4dfc5341.png": "/memory-game/static/media/candy.4dfc5341.png",
     "static/media/cardBack.7852abab.jpg": "/memory-game/static/media/cardBack.7852abab.jpg",
+    "static/media/christmasBall.093d2654.png": "/memory-game/static/media/christmasBall.093d2654.png",
     "static/media/cookie.4d8e8970.png": "/memory-game/static/media/cookie.4d8e8970.png",
     "static/media/gift.33c31d23.png": "/memory-game/static/media/gift.33c31d23.png",
+    "static/media/icicle.c28d5e14.svg": "/memory-game/static/media/icicle.c28d5e14.svg",
     "static/media/lights.a9d822ef.png": "/memory-game/static/media/lights.a9d822ef.png",
+    "static/media/mistletoe.d8f6d9c3.png": "/memory-game/static/media/mistletoe.d8f6d9c3.png",
     "static/media/santa.d080bc57.png": "/memory-game/static/media/santa.d080bc57.png",
+    "static/media/sideSnow.813a865f.svg": "/memory-game/static/media/sideSnow.813a865f.svg",
+    "static/media/snowCap-2.27d45024.svg": "/memory-game/static/media/snowCap-2.27d45024.svg",
+    "static/media/snowCap.8c811310.svg": "/memory-game/static/media/snowCap.8c811310.svg",
     "static/media/snowflake.a3d82073.png": "/memory-game/static/media/snowflake.a3d82073.png",
     "static/media/snowman.900c36da.png": "/memory-game/static/media/snowman.900c36da.png",
     "static/media/sock.c3b8f7b1.png": "/memory-game/static/media/sock.c3b8f7b1.png",
-    "static/media/stars.71437e66.jpg": "/memory-game/static/media/stars.71437e66.jpg",
-    "static/media/tree.035170c0.png": "/memory-game/static/media/tree.035170c0.png"
+    "static/media/tree.035170c0.png": "/memory-game/static/media/tree.035170c0.png",
+    "static/media/wreath.7bd71d09.png": "/memory-game/static/media/wreath.7bd71d09.png"
   },
   "entrypoints": [
     "static/js/runtime-main.aff7712e.js",
-    "static/js/2.05fdb1e8.chunk.js",
-    "static/js/main.16e379b5.chunk.js"
+    "static/js/2.2ae01c43.chunk.js",
+    "static/js/main.13f04a0e.chunk.js"
   ]
 }
