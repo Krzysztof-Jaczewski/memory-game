@@ -4,7 +4,7 @@ import SecondSnowCap from "./images/snowCap-2.svg";
 import Icecle from "./images/icicle.svg";
 import SideSnow from "./images/sideSnow.svg";
 
-export const Button = ({ type, role, children }) => {
+export const Button = ({ type, task, children }) => {
   return (
     <ButtonLabel>
       <Image src={FirstsnowCap} alt="Snow" />
@@ -25,7 +25,7 @@ export const Button = ({ type, role, children }) => {
           <Image src={SideSnow} alt="SideSnow" />
         </>
       )}
-      <StyledButton onClick={role}>{children}</StyledButton>
+      <StyledButton onClick={task}>{children}</StyledButton>
     </ButtonLabel>
   );
 };

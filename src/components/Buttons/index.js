@@ -16,25 +16,25 @@ export const Buttons = () => {
       {status !== "chooseDifficulty" && (
         <Button
           type="newGame"
-          role={() => dispatch(changeStatus("chooseDifficulty"))}
+          task={() => dispatch(changeStatus("chooseDifficulty"))}
         >
           New Game
         </Button>
       )}
       {status === "chooseDifficulty" && (
         <Difficulty>
-          <Button role={() => dispatch(startNewGame(6))}>
+          <Button task={() => dispatch(startNewGame(6))}>
             Beginner
           </Button>
           <Button
             type="advanced"
-            role={() => dispatch(startNewGame(4))}
+            task={() => dispatch(startNewGame(4))}
           >
             Advanced
           </Button>
           <Button
             type="expert"
-            role={() => dispatch(startNewGame(0))}
+            task={() => dispatch(startNewGame(0))}
           >
             Expert
           </Button>
