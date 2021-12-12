@@ -1,5 +1,5 @@
 import { Board } from "./components/Board";
-import { Button } from "./components/Button";
+import { Buttons } from "./components/Buttons";
 import { Title } from "./components/Title";
 
 export const App = () => {
@@ -7,7 +7,7 @@ export const App = () => {
     <>
       <Title />
       <Board />
-      <Button />
+      <Buttons />
     </>
   );
 };

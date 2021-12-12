@@ -1,8 +1,6 @@
 import styled from "styled-components";
-// import { ReactComponent as Snow } from "./images/snowCap.svg";
-// import { ReactComponent as Ice } from "./images/icicle.svg";
 
-export const ButtonLabel = styled.label`
+export const ButtonLabel = styled.div`
   width: 200px;
   height: 50px;
   display: block;

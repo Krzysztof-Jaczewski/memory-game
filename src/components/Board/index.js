@@ -49,7 +49,7 @@ export const Board = () => {
     if (status === "inGame" && isEveryCardMatched) {
       dispatch(changeStatus("gameOver"));
       const bestScore = getScoreFromLocalStorage(difficulty);
-      if (turns < bestScore || bestScore === "no score")
+      if (turns < bestScore || bestScore === "no score yet")
         saveScoreInLocalStorage(turns, difficulty);
     }
   }, [dispatch, isEveryCardMatched, status, turns, difficulty]);
