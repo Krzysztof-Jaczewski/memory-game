@@ -7,6 +7,7 @@ export const ButtonLabel = styled.div`
   margin: 0 auto 0px;
   padding: 10px;
   position: relative;
+  z-index: 1;
   &:hover {
     filter: brightness(120%);
   }

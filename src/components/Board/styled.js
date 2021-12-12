@@ -4,7 +4,7 @@ export const MainContent = styled.main`
   max-width: 660px;
   margin: 0 auto 40px;
   padding: 0 30px;
-
+  z-index: 1;
   ${({ expert }) =>
     expert &&
     css`
