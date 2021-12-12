@@ -7,7 +7,7 @@ export const Difficulty = styled.div`
   gap: 40px;
 
   @media (max-width: 787px) {
-    gap: 60px;
+    gap: 20px;
     grid-auto-flow: row;
   }
 `;

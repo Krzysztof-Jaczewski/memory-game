@@ -8,6 +8,11 @@ export const ButtonLabel = styled.div`
   padding: 10px;
   position: relative;
   z-index: 1;
+
+  @media (max-width: 500px) {
+    transform: scale(0.6);
+  }
+
   &:hover {
     filter: brightness(120%);
   }
