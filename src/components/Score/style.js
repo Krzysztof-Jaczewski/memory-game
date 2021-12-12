@@ -4,7 +4,7 @@ export const ScoreBoard = styled.section`
   position: absolute;
   width: 80%;
   left: 10%;
-  top: 20%;
+  top: 10%;
   padding: 16px 8px;
   background-color: rgba(0, 0, 100, 0.9);
   z-index: 1;
