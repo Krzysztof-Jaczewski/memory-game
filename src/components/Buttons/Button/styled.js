@@ -28,12 +28,10 @@ export const StyledButton = styled.button`
   z-index: -1;
   border: 1px solid darkred;
   box-shadow: 2px 2px 3px rgb(60, 60, 60),
-    -2px -2px 3px rgb(255, 150, 150),
-    inset -1.5px -1.5px 3px rgb(255, 150, 150),
-    inset 1.5px 1.5px 3px rgb(0, 0, 0);
+    -2px -2px 3px rgb(255, 150, 150), 2px 2px 3px rgb(60, 60, 60),
+    -2px -2px 3px rgb(255, 150, 150);
   &:hover {
-    box-shadow: 2px 2px 3px rgb(60, 60, 60),
-      -2px -2px 3px rgb(255, 150, 150);
+    filter: brightness(125%);
   }
   &:active {
     box-shadow: 2px 2px 3px rgb(60, 60, 60),
