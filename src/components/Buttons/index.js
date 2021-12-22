@@ -10,7 +10,7 @@ import { Difficulty } from "./styled";
 export const Buttons = () => {
   const status = useSelector(selectStatus);
   const dispatch = useDispatch();
-  console.log(status);
+
   return (
     <>
       {status !== "chooseDifficulty" && (
