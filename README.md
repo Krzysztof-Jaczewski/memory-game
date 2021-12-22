@@ -15,6 +15,7 @@ Your best scores are saved in locals storage, there is no greater opponet then y
 ## :gear: Used Technologies
 
 - react/react-redux
+- react-sound
 - JSX
 - Babel
 - GIT
