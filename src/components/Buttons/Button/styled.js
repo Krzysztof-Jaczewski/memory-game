@@ -4,7 +4,7 @@ export const ButtonLabel = styled.div`
   width: 200px;
   height: 50px;
   display: block;
-  margin: 0 auto 0px;
+  margin: 0 auto;
   padding: 10px;
   position: relative;
   z-index: 1;
