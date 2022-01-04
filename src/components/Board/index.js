@@ -11,7 +11,7 @@ import {
   selectIsEveryCardMatched,
   selectStatus,
   selectTurns,
-  setDisableTrue,
+  disableCardsClick,
   updateCards,
 } from "../gameSlice";
 import { SingleCard } from "../SingleCard";
@@ -33,7 +33,7 @@ export const Board = () => {
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      dispatch(setDisableTrue());
+      dispatch(disableCardsClick());
       if (choiceOne.src === choiceTwo.src) {
         dispatch(updateCards(choiceOne.src, choiceTwo.src));
         dispatch(resetChoice());

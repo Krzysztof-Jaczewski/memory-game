@@ -1,6 +1,5 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import cardBack from "./SingleCard/images/cardBack.jpg";
-import { cardsArray } from "./SingleCard/cardsArray";
 
 const gameSlice = createSlice({
   name: "cards",
@@ -13,30 +12,9 @@ const gameSlice = createSlice({
     choiceTwo: null,
     disable: false,
     cardBack: { src: cardBack },
-    cardImages: cardsArray,
   },
   reducers: {
-    startNewGame: (state, { payload: value }) => {
-      const shuffledCards = state.cardImages
-        .slice(value)
-        .concat(state.cardImages.slice(value))
-        .sort(() => Math.random() - 0.5)
-        .map((card) => ({
-          src: card.src,
-          matched: false,
-          id: nanoid(),
-        }));
-
-      if (value === 6) {
-        state.difficulty = "beginner";
-      }
-      if (value === 4) {
-        state.difficulty = "advanced";
-      }
-      if (value === 0) {
-        state.difficulty = "expert";
-      }
-
+    setNewGame: (state, { payload: shuffledCards }) => {
       state.cards = shuffledCards;
       state.turns = 0;
       state.status = "inGame";
@@ -66,24 +44,23 @@ const gameSlice = createSlice({
     },
 
     updateCards: (state, { payload: srcOne, srcTwo }) => {
-      state.cards.map((card) => {
-        if (card.src === srcOne) return (card.matched = true);
-        if (card.src === srcTwo) return (card.matched = true);
-        else return card;
+      state.cards.forEach((card) => {
+        if (card.src === srcOne) card.matched = true;
+        if (card.src === srcTwo) card.matched = true;
       });
     },
 
-    setDisableTrue: (state) => {
+    disableCardsClick: (state) => {
       state.disable = true;
     },
   },
 });
 export const {
-  startNewGame,
+  setNewGame,
   handleChoice,
   resetChoice,
   updateCards,
-  setDisableTrue,
+  disableCardsClick,
   changeStatus,
   setDifficulty,
 } = gameSlice.actions;
