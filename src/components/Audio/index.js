@@ -4,20 +4,22 @@ import weWishYouMerryChristmas from "./weWishYouMerryChristmas.mp3";
 import { AudioButton } from "./styled";
 
 export const Audio = () => {
-  const [play, setPlay] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <>
       <AudioButton
-        playing={play}
-        onClick={() => setPlay((prevState) => !prevState)}
+        playing={isPlaying}
+        onClick={() => setIsPlaying((prevState) => !prevState)}
       >
         ⏯
       </AudioButton>
       <Sound
+        loop
         url={weWishYouMerryChristmas}
         volume={50}
-        playStatus={play ? Sound.status.PLAYING : Sound.status.PAUSED}
-        loop={true}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.PAUSED
+        }
       />
     </>
   );
