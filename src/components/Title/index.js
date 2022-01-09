@@ -1,7 +1,8 @@
+import { gametitle } from "../../parameters";
 import { StyledTitle, Header } from "./styled";
 
 export const Title = () => (
   <Header>
-    🎄 <StyledTitle> Christmas Memory Game </StyledTitle> 🎄
+    🎄 <StyledTitle> {gametitle} </StyledTitle> 🎄
   </Header>
 );

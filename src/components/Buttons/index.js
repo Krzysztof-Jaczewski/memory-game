@@ -9,16 +9,23 @@ import {
 import { Button } from "./Button";
 import { Difficulty } from "./styled";
 import { cardsArray } from "../SingleCard/cardsArray";
+import {
+  chooseDifficulty,
+  easy,
+  hard,
+  medium,
+  start,
+} from "../../parameters";
 
 export const Buttons = () => {
   const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
   const startNewGame = (numberShorteningArray) => {
-    const cardsArrays = cardsArray.slice(numberShorteningArray);
+    const toShuffleArray = cardsArray.slice(numberShorteningArray);
     let difficulty = null;
 
-    const shuffledCards = [...cardsArrays, ...cardsArrays]
+    const shuffledCards = [...toShuffleArray, ...toShuffleArray]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({
         src: card.src,
@@ -28,13 +35,13 @@ export const Buttons = () => {
 
     switch (numberShorteningArray) {
       case 6:
-        difficulty = "beginner";
+        difficulty = easy;
         break;
       case 4:
-        difficulty = "advanced";
+        difficulty = medium;
         break;
       default:
-        difficulty = "expert";
+        difficulty = hard;
         break;
     }
 
@@ -44,22 +51,22 @@ export const Buttons = () => {
 
   return (
     <>
-      {status !== "chooseDifficulty" && (
+      {status !== chooseDifficulty && (
         <Button
-          type="newGame"
-          task={() => dispatch(changeStatus("chooseDifficulty"))}
+          type={start}
+          task={() => dispatch(changeStatus(chooseDifficulty))}
         >
-          New Game
+          {start}
         </Button>
       )}
-      {status === "chooseDifficulty" && (
+      {status === chooseDifficulty && (
         <Difficulty>
-          <Button task={() => startNewGame(6)}>Beginner</Button>{" "}
-          <Button type="advanced" task={() => startNewGame(4)}>
-            Advanced
+          <Button task={() => startNewGame(6)}>{easy}</Button>{" "}
+          <Button type={medium} task={() => startNewGame(4)}>
+            {medium}
           </Button>
-          <Button type="expert" task={() => startNewGame(0)}>
-            Expert
+          <Button type={hard} task={() => startNewGame()}>
+            {hard}
           </Button>
         </Difficulty>
       )}

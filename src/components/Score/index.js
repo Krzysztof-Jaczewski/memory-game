@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { easy, hard, medium } from "../../parameters";
 import { getScoreFromLocalStorage } from "../../scoreLocalStorage";
 import { selectTurns } from "../gameSlice";
 import { Header, ScoreBoard, Text } from "./style";
@@ -11,9 +12,15 @@ export const Score = () => {
       <Header>Score</Header>
       <Text>current score: {turns}</Text>
       <Header>Your Best Scores</Header>
-      <Text>Beginner: {getScoreFromLocalStorage("beginner")}</Text>
-      <Text>Advenced: {getScoreFromLocalStorage("advanced")}</Text>
-      <Text>Expert: {getScoreFromLocalStorage("expert")}</Text>
+      <Text>
+        {easy}: {getScoreFromLocalStorage(easy)}
+      </Text>
+      <Text>
+        {medium}: {getScoreFromLocalStorage(medium)}
+      </Text>
+      <Text>
+        {hard}: {getScoreFromLocalStorage(hard)}
+      </Text>
     </ScoreBoard>
   );
 };

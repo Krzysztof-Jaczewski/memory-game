@@ -35,6 +35,11 @@ export const Header = styled.header`
 export const Text = styled.p`
   font-size: clamp(16px, 3vw, 24px);
   padding: 8px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
   @media (max-width: 500px) {
     padding: 4px;
   }

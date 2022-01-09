@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { inGame } from "../parameters";
 import cardBack from "./SingleCard/images/cardBack.jpg";
 
 const gameSlice = createSlice({
@@ -17,7 +18,7 @@ const gameSlice = createSlice({
     setNewGame: (state, { payload: shuffledCards }) => {
       state.cards = shuffledCards;
       state.turns = 0;
-      state.status = "inGame";
+      state.status = inGame;
       state.choiceOne = null;
       state.choiceTwo = null;
     },

@@ -20,6 +20,13 @@ import {
   getScoreFromLocalStorage,
   saveScoreInLocalStorage,
 } from "../../scoreLocalStorage";
+import {
+  chooseDifficulty,
+  gameOver,
+  hard,
+  inGame,
+  noScore,
+} from "../../parameters";
 
 export const Board = () => {
   const cards = useSelector(selectCards);
@@ -46,20 +53,20 @@ export const Board = () => {
   }, [dispatch, choiceOne, choiceTwo]);
 
   useEffect(() => {
-    if (status === "inGame" && isEveryCardMatched) {
-      dispatch(changeStatus("gameOver"));
+    if (status === inGame && isEveryCardMatched) {
+      dispatch(changeStatus(gameOver));
       const bestScore = getScoreFromLocalStorage(difficulty);
-      if (turns < bestScore || bestScore === "no score yet")
+      if (turns < bestScore || bestScore === noScore)
         saveScoreInLocalStorage(turns, difficulty);
     }
   }, [dispatch, isEveryCardMatched, status, turns, difficulty]);
 
   return (
-    <MainContent expert={difficulty === "expert"}>
+    <MainContent expert={difficulty === hard}>
       <Turns>Turn : {turns}</Turns>
-      <StyledBoard expert={difficulty === "expert"}>
-        {status === "gameOver" && <Score />}
-        {status !== "chooseDifficulty" &&
+      <StyledBoard expert={difficulty === hard}>
+        {status === gameOver && <Score />}
+        {status !== chooseDifficulty &&
           cards.map((card) => (
             <SingleCard key={card.id} card={card} />
           ))}

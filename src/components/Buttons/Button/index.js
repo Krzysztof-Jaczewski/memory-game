@@ -3,23 +3,22 @@ import FirstsnowCap from "./images/snowCap.svg";
 import SecondSnowCap from "./images/snowCap-2.svg";
 import Icecle from "./images/icicle.svg";
 import SideSnow from "./images/sideSnow.svg";
+import { hard, medium, start } from "../../../parameters";
 
 export const Button = ({ type, task, children }) => {
   return (
     <ButtonLabel>
       <Image src={FirstsnowCap} alt="Snow" />
-      {(type === "newGame" ||
-        type === "advanced" ||
-        type === "expert") && (
+      {(type === start || type === medium || type === hard) && (
         <Image src={SecondSnowCap} alt="Snow" />
       )}
-      {(type === "advanced" || type === "expert") && (
+      {(type === medium || type === hard) && (
         <>
           <Image src={Icecle} alt="Icicle" />
           <Image src={Icecle} alt="Icicle" />
         </>
       )}
-      {type === "expert" && (
+      {type === hard && (
         <>
           <Image src={Icecle} alt="Icicle" />
           <Image src={SideSnow} alt="SideSnow" />
