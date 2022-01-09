@@ -9,6 +9,9 @@ export const ButtonLabel = styled.div`
   position: relative;
   z-index: 1;
 
+  @media (max-width: 787px) {
+    transform: scale(0.7);
+  }
   @media (max-width: 500px) {
     transform: scale(0.6);
   }
@@ -38,6 +41,9 @@ export const StyledButton = styled.button`
       -2px -2px 3px rgb(255, 150, 150),
       inset -1.5px -1.5px 3px rgb(255, 150, 150),
       inset 1.5px 1.5px 3px rgb(0, 0, 0);
+  }
+  &::first-letter {
+    text-transform: uppercase;
   }
 `;
 
